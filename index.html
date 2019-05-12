@@ -100,35 +100,46 @@
         </div>
     </nav>
     <div class="container">
-        <br><br><br><br><br>
         <div class="d-flex justify-content-center mt-5">
             <img src="bookrrow-logo.png" alt="Bookrrow">
         </div>
         <div class="d-flex justify-content-center">
             <div class="searchbar">
                 <input class="search_input" type="text" name="" id="search" placeholder="Search...">
-                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                <a href="#" id="searchBtn" class="search_icon"><i class="fas fa-search"></i></a>
             </div>
         </div>
         <div class="d-flex justify-content-center mt-5">
-            <select>
-                <option value="all">All</option>
+            <select id="category">
                 <option value="title">Title</option>
                 <option value="type">Type</option>
                 <option value="language">Language</option>
                 <option value="year">Year</option>
                 <option value="genre">Genre</option>
                 <option value="author">Author</option>
-                <option value="owner">Owner</option>
             </select>
         </div>
         <div class="d-flex justify-content-center mt-5">
-            <select id="addtional-dropdown">
-                    <option value="all">All</option>
+            <select id="additional-dropdown">
+                <option value="all">All</option>
             </select>
         </div>
     </div>
 
-</body>
+    <!-- untuk membuat seperti session -->
+    <script>
+        const userInfo = localStorage.getItem("bookrrowConsumerInfo")
+        if(typeof userInfo == 'undefined' || userInfo == null){
+            window.location.href = 'login.html'
+        }
+        console.log("current consumer" + userInfo)
+        const userInfoObj = JSON.parse(userInfo)
+    </script>
 
+    <script src="./scripts/jquery-3.3.1.min.js"></script>
+    <script src="./scripts/domain.js"></script>
+    <script src="./scripts/request/books.js"></script>
+    <script src="./scripts/dom-manipulation/search.js"></script>
+    
+</body>
 </html>

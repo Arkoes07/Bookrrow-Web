@@ -123,12 +123,11 @@
         <div class="col-4 mt-2 ml-5">
             <div class="searchbar">
                 <input class="search_input" type="text" name="" id="search" placeholder="Search...">
-                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+                <a href="#" id="searchBtn" class="search_icon"><i class="fas fa-search"></i></a>
             </div>
         </div>
         <div class="col-2 ml-2 mt-3">
-            <select style="width:270px">
-                <option value="all">All</option>
+            <select style="width:270px" id="category">
                 <option value="title">Title</option>
                 <option value="type">Type</option>
                 <option value="language">Language</option>
@@ -139,9 +138,9 @@
             </select>
         </div>
         <div class="col-2 mt-3">
-            <select id="addtional-dropdown" style="width:270px">
-                    <option value="all"></option>
-                </select>
+            <select id="additional-dropdown" style="width:270px">
+                <option value="all"></option>
+            </select>
         </div>
     </div>
     <div class="row ml-5 mr-5 mt-3 mb-5" id="row-result">
@@ -223,6 +222,25 @@
 
     </div>
 
+
+    <!-- untuk membuat seperti session -->
+    <script>
+        const userInfo = localStorage.getItem("bookrrowConsumerInfo")
+        if(typeof userInfo == 'undefined' || userInfo == null){
+            window.location.href = 'login.html'
+        }
+        console.log("current consumer" + userInfo)
+        const userInfoObj = JSON.parse(userInfo)
+    </script>
+
+    <script src="./scripts/jquery-3.3.1.min.js"></script>
+    <script src="./scripts/domain.js"></script>
+    <script src="./scripts/request/books.js"></script>
+    <script src="./scripts/dom-manipulation/search.js"></script>
+    <script>
+        loadResultData()
+        // fillSearchFormWithCurrentState()
+    </script>
 </body>
 
 </html>

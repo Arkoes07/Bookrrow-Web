@@ -20,10 +20,11 @@ function loginConsumer ( username, password ){
         type: "POST",
         data: { username, password },
         success: function(data, status, jqXHR) {
-            // success
+            localStorage.setItem("bookrrowConsumerInfo",JSON.stringify(data))
+            window.location.href = 'index.html'
         },
         error: function(jqXHR, status, errorThrown) {
-            console.log(jqXHR)    
+            alert("Login Failed!")   
         },
         dataType: "json",
         timeout: 10000
