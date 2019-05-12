@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bokkrow Register</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="res/css/style.css">
+
+    <style>
+        body {
+            background: #e4ecee no-repeat fixed center;
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+        .align-middle {
+            vertical-align: middle !important;
+        }
+        
+        select,
+        option {
+            width: 100%;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="col text-center">
+            <img src="bookrrow-logo.png" alt="Bookrrow" style="height:160px">
+        </div>
+    </div>
+    <div class="site-content">
+        <div class="row" style="padding:5px">
+            <br>
+            <br>
+            <div class="col-3">
+            </div>
+            <div class="col-6">
+                <h1>Insert Your Book Here:</h1>
+                <div class="landing-text mt-3" style="padding:5px">
+                    <form action="create.php" method="post" class="was-validated">
+                        <div class="form-group">
+                            <label for="tittle">Tittle:</label>
+                            <input type="text" class="form-control" id="tittle" placeholder="Enter Book Tittle" name="tittle" required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="author">Author:</label>
+                            <input type="text" class="form-control" id="author" placeholder="Enter Author" name="author" required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="booktype">Book Type:</label>
+                            <br>
+                            <select>
+            <option value="fiction">Fiction</option>
+            <option value="nonfiction">Non-Fiction</option>
+          </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="booktype">Genre:</label>
+                            <br>
+                            <select>
+                   <option value="horror">Horror</option>
+                   <option value="fantasy">Fantasy</option>
+                   <option value="romance">Romance</option>
+                   <option value="slifeoflife">Slice of Life</option>
+                   <option value="comedy">Comedy</option>
+                   <option value="scifi">Science-fiction</option>
+                   <option value="adult">Adult</option>
+                   <option value="history">History</option>
+                 </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="language">Language:</label>
+                            <br>
+                            <select>
+                    <option value="english">English</option>
+                    <option value="indonesia">Indonesian</option>
+                    <option value="spanish">Spanish</option>
+                    <option value="japanese">Japanese</option>
+            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="year">Year:</label>
+                            <input type="text" class="form-control" id="year" placeholder="Enter Book Year" name="year" required>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description">Description:</label>
+                            <textarea class="form-control" rows="5" id="description" required></textarea>
+                            <div class="invalid-feedback">Please fill out this field.</div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-right mt-1 mb-5">
+                                <a href="#"><button type="submit" class="btn btn-primary" style="width:100px">Submit</button></a>
+                                <a href="#" class="btn btn-secondary" style="width:100px">Cancel </a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>

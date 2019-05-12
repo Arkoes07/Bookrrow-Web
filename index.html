@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bookrrow</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #e4ecee;
+        }
+        
+        html {
+            height: 100%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            /* background: #e74c3c !important; */
+        }
+        
+        .searchbar {
+            margin-bottom: auto;
+            margin-top: auto;
+            height: 60px;
+            background-color: #353b48;
+            border-radius: 30px;
+            padding: 10px;
+        }
+        
+        .search_input {
+            color: white;
+            border: 0;
+            outline: 0;
+            background: none;
+            width: 0;
+            caret-color: transparent;
+            line-height: 40px;
+            transition: width 0.4s linear;
+        }
+        
+        .searchbar>.search_input {
+            padding: 0 10px;
+            width: 450px;
+            caret-color: salmon;
+            transition: width 0.4s linear;
+        }
+        
+        .searchbar>.search_icon {
+            background: white;
+            color: salmon;
+        }
+        
+        .search_icon {
+            height: 40px;
+            width: 40px;
+            float: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            color: white;
+        }
+        
+        select,
+        option {
+            width: 43%;
+            padding: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">Bookrrow</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                                                  <span class="navbar-toggler-icon"></span>
+                                                </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="request.html">Request</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="ongoing.html">Ongoing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="history.html">History</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <br><br><br><br><br>
+        <div class="d-flex justify-content-center mt-5">
+            <img src="bookrrow-logo.png" alt="Bookrrow">
+        </div>
+        <div class="d-flex justify-content-center">
+            <div class="searchbar">
+                <input class="search_input" type="text" name="" id="search" placeholder="Search...">
+                <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <select>
+                <option value="all">All</option>
+                <option value="title">Title</option>
+                <option value="type">Type</option>
+                <option value="language">Language</option>
+                <option value="year">Year</option>
+                <option value="genre">Genre</option>
+                <option value="author">Author</option>
+                <option value="owner">Owner</option>
+            </select>
+        </div>
+        <div class="d-flex justify-content-center mt-5">
+            <select id="addtional-dropdown">
+                    <option value="all">All</option>
+            </select>
+        </div>
+    </div>
+
+</body>
+
+</html>
