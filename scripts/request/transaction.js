@@ -1,11 +1,12 @@
 function requestBorrow(book_id) {
     const borrower_id = userInfoObj.id
+    // console.log({ book_id, borrower_id })
     $.ajax({ 
         url: domain+"/transaction/borrow",
         type: "POST",
         data: { book_id, borrower_id },
         success: function(data, status, jqXHR) {
-            // success
+            alert("success")
         },
         error: function(jqXHR, status, errorThrown) {
             console.log(jqXHR)    

@@ -15,7 +15,7 @@ $("#searchBtn").click(e => {
     }
     const searchParam = {searchInput, primarySelector, secondarySelector}
     window.localStorage.setItem("bookrrowSearchParam",JSON.stringify(searchParam))
-    if(window.location.href == frontDomain+'/index.html'){
+    if(window.location.href == frontDomain+'/index.html' || window.location.href == frontDomain+'/'){
         window.location.href = 'result.html'
     }else{
         loadResultData()
