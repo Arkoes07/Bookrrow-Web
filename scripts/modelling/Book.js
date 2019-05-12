@@ -34,4 +34,23 @@ class Book {
         console.log("ownerId : " + this.ownerObj.id)
         console.log("genre : " + this.genreObj.genre)
     }
+
+    getBookToResult(){
+        return `
+            <div class="col-3 mt-5">
+                <div class="card card-hover">
+                    <div class="card-body">
+                        <h3 class="card-title text-truncate">${this.title}</h3>
+                        <h6 class="card-subtitle mb-2 text-muted">By: ${this.author}</h6>
+                        <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.languageObj.language} | ${this.typeObj.bookType} | ${this.genreObj.genre}</p><br>
+                        <p class="card-text">${this.description}</p>
+                        <br>
+                        <div class="text-right">
+                            <a href="#" onclick="requestBorrow(${this.id})" class="card-link">Request Book</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `
+    }
 }

@@ -1,4 +1,5 @@
-function requestBorrow(book_id, borrower_id) {
+function requestBorrow(book_id) {
+    const borrower_id = userInfoObj.id
     $.ajax({ 
         url: domain+"/transaction/borrow",
         type: "POST",
