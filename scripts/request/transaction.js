@@ -6,7 +6,8 @@ function requestBorrow(book_id) {
         type: "POST",
         data: { book_id, borrower_id },
         success: function(data, status, jqXHR) {
-            alert("success")
+            alert("Requested!")
+            window.location.href = 'request.html'
         },
         error: function(jqXHR, status, errorThrown) {
             console.log(jqXHR)    
@@ -22,7 +23,8 @@ function acceptBorrowRequest(transaction_id) {
         type: "POST",
         data: { transaction_id },
         success: function(data, status, jqXHR) {
-            // success
+            alert("Accepted!")
+            window.location.href = 'ongoing.html'
         },
         error: function(jqXHR, status, errorThrown) {
             console.log(jqXHR)    
@@ -38,7 +40,8 @@ function rejectBorrowRequest(transaction_id) {
         type: "POST",
         data: { transaction_id },
         success: function(data, status, jqXHR) {
-            // success
+            alert("Rejected!")
+            window.location.href = 'history.html'
         },
         error: function(jqXHR, status, errorThrown) {
             console.log(jqXHR)    
@@ -54,7 +57,8 @@ function finishOngoingBorrow(transaction_id){
         type: "POST",
         data: { transaction_id },
         success: function(data, status, jqXHR) {
-            // success
+            alert("Finished!")
+            window.location.href = 'history.html'
         },
         error: function(jqXHR, status, errorThrown) {
             console.log(jqXHR)    

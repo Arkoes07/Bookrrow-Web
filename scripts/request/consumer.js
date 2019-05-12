@@ -4,10 +4,11 @@ function registerConsumer( username, password, name, email, phonenum ){
         type: "POST",
         data: { username, password, name, email, phonenum },
         success: function(data, status, jqXHR) {
-            // success
+            alert("Register Succed!") 
+            window.location.href = 'login.html'
         },
         error: function(jqXHR, status, errorThrown) {
-            console.log(jqXHR)    
+            alert("Register Failed!")   
         },
         dataType: "json",
         timeout: 10000

@@ -8,15 +8,11 @@
     <title>Bokkrow Register</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
-    <link rel="stylesheet" href="res/css/style.css">
-
     <style>
         body {
             background: #e4ecee no-repeat fixed center;
             height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
+            overflow-x: hidden;
         }
         
         .align-middle {
@@ -39,8 +35,8 @@
             </div>
             <div class="col-6">
                 <h1>Create new account</h1>
-                <div class="landing-text mt-3" style="padding:5px">
-                    <form action="create.php" method="post" class="was-validated">
+                <div class="landing-text mt-3 mb-5" style="padding:5px">
+                    <form action="javascript:registering();" method="POST" class="was-validated">
                         <div class="form-group">
                             <label for="fullname">Full name:</label>
                             <input type="text" class="form-control" id="fullname" placeholder="Enter full name" name="fullname" required>
@@ -58,24 +54,24 @@
                         </div>
                         <div class="form-group">
                             <label for="email">Email:</label>
-                            <input type="text" class="form-control" id="email" placeholder="Enter email" name="email" required>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
                             <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                         <div class="form-group">
                             <label for="phonenum">Phone number:</label>
-                            <input type="text" class="form-control" id="phonenum" placeholder="Enter phone number" name="phonenum" required>
+                            <input type="number" class="form-control" id="phonenum" placeholder="Enter phone number" name="phonenum" required>
                             <div class="invalid-feedback">Please fill out this field.</div>
                         </div>
                         <div class="row">
                             <div class="col text-right">
                                 <div class="form-group form-check">
                                     <label class="form-check-label">
-                                                <input class="form-check-input" type="checkbox" name="remember" required> I agreed to create this account.
-                                                <div class="invalid-feedback">Check this checkbox to continue.</div>
-                                        </label>
+                                        <input class="form-check-input" type="checkbox" name="remember" required> I agreed to create this account.
+                                        <div class="invalid-feedback">Check this checkbox to continue.</div>
+                                    </label>
                                 </div>
                                 <a href="#"><button type="submit" class="btn btn-primary" style="width:100px">Submit</button></a>
-                                <a href="login.html" class="btn btn-secondary" style="width:100px">Cancel </a>
+                                <a href="login.html" class="btn btn-secondary" style="width:100px">Cancel</a>
                             </div>
                         </div>
                     </form>
@@ -85,8 +81,22 @@
             </div>
 
         </div>
-
     </div>
+
+    <script src="./scripts/jquery-3.3.1.min.js"></script>
+    <script src="./scripts/domain.js"></script>
+    <script src="./scripts/request/consumer.js"></script>
+    <script>
+        function registering(){
+            const name = $('#fullname').val()
+            const username = $('#uname').val()
+            const password = $('#password').val()
+            const email = $('#email').val()
+            const phoneNumber = $('#phonenum').val()
+            registerConsumer(username, password, name, email, phoneNumber)
+        }
+    </script>
+
 </body>
 
 </html>
