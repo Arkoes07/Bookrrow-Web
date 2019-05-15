@@ -20,21 +20,28 @@ class Transaction {
             this.startDate = ""
         }
 
+        let genre = {keyName : "", genre : ""}
+        if(typeof transactionJsonObj.book.genre !== 'undefined'){
+            genre = transactionJsonObj.book.genre
+        }
+        this.genreObj = genre
+
+
         let bd = this.bookObj.description
         if(bd == null){ bd = "" }
         this.bookDescription = bd
 
     }
 
-    consoleData() {
-        console.log("====== id : " + this.id)
-        console.log("bookId : " + this.bookObj.id)
-        console.log("borrowerId : " + this.borrowerObj.id)
-        console.log("transactionStatus : " + this.transactionStatusObj.transactionStatus)
-        console.log("requestDate : " + this.requestDate)
-        console.log("startDate : " + this.startDate)
-        console.log("finishDate : " + this.finishDate)
-    }
+    // consoleData() {
+    //     console.log("====== id : " + this.id)
+    //     console.log("bookId : " + this.bookObj.id)
+    //     console.log("borrowerId : " + this.borrowerObj.id)
+    //     console.log("transactionStatus : " + this.transactionStatusObj.transactionStatus)
+    //     console.log("requestDate : " + this.requestDate)
+    //     console.log("startDate : " + this.startDate)
+    //     console.log("finishDate : " + this.finishDate)
+    // }
 
     getTransactionToIncomingRequest() {
         return `
@@ -52,7 +59,7 @@ class Transaction {
                         </div>
                         <div class="card-body">
                             <h3 class="card-title text-truncate">${this.bookObj.title}</h3>
-                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.bookObj.genre.genre}</p><br>
+                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.genreObj}</p><br>
                             <p class="card-text">${this.bookDescription}</p>
                             <br>
                             <div class="row">
@@ -92,7 +99,7 @@ class Transaction {
                         </div>
                         <div class="card-body">
                             <h3 class="card-title text-truncate">${this.bookObj.title}</h3>
-                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.bookObj.genre.genre}</p><br>
+                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.genreObj}</p><br>
                             <p class="card-text">${this.bookDescription}</p>
                             <br>
                         </div>
@@ -120,7 +127,7 @@ class Transaction {
                         </div>
                         <div class="card-body">
                             <h3 class="card-title text-truncate">${this.bookObj.title}</h3>
-                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.bookObj.genre.genre}</p><br>
+                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.genreObj}</p><br>
                             <p class="card-text">${this.bookDescription}</p>
                             <br>
                             <div class="text-right">
@@ -151,7 +158,7 @@ class Transaction {
                         </div>
                         <div class="card-body">
                             <h3 class="card-title text-truncate">${this.bookObj.title}</h3>
-                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.bookObj.genre.genre}</p><br>
+                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.genreObj}</p><br>
                             <p class="card-text">${this.bookDescription}</p>
                             <br>
                             <br>
@@ -180,7 +187,7 @@ class Transaction {
                         </div>
                         <div class="card-body">
                             <h3 class="card-title text-truncate">${this.bookObj.title}</h3>
-                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.bookObj.genre.genre}</p><br>
+                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.genreObj}</p><br>
                             <p class="card-text">${this.bookDescription}</p>
                             <br>
                         </div>
@@ -208,7 +215,7 @@ class Transaction {
                         </div>
                         <div class="card-body">
                             <h3 class="card-title text-truncate">${this.bookObj.title}</h3>
-                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.bookObj.genre.genre}</p><br>
+                            <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.bookObj.language.language} | ${this.bookObj.type.bookType} | ${this.genreObj}</p><br>
                             <p class="card-text">${this.bookDescription}</p>
                             <br>
                         </div>

@@ -89,7 +89,7 @@
 
     <script>
         const userInfo = localStorage.getItem("bookrrowConsumerInfo")
-        if(typeof userInfo != 'undefined' || userInfo != null){
+        if(userInfo != null){
             window.location.href = 'index.html'
         }
         console.log("current consumer" + userInfo)
@@ -109,9 +109,6 @@
             registerConsumer(username, password, name, email, phoneNumber)
         }
     </script>
-
     
-
 </body>
-
 </html>
