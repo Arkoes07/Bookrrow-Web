@@ -4,7 +4,7 @@ function registerConsumer( username, password, name, email, phonenum ){
         type: "POST",
         data: { username, password, name, email, phonenum },
         success: function(data, status, jqXHR) {
-            alert("Register Succed!") 
+            alert("Register Succeed!") 
             window.location.href = 'login.html'
         },
         error: function(jqXHR, status, errorThrown) {

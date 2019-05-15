@@ -100,10 +100,37 @@ function getAllByAuthor(author){
     })
 }
 
+function getAllByOwner(owner_id){
+    console.log("owner_id : " + owner_id)
+    $.ajax({ 
+        url: domain+"/book/byowner",
+        data: { owner_id },
+        success: function(data, status, jqXHR) {
+            console.log(data)
+            showUserBookCollections(data)
+        },
+        error: function(jqXHR, status, errorThrown) {
+            console.log(jqXHR)    
+        },
+        dataType: "json",
+        timeout: 10000
+    })
+}
+
 function showResultData(data){
     $('#row-result').empty()
-    filteredData.forEach(bookObj => {
+    data.forEach(bookObj => {
         book = new Book(bookObj)
         $('#row-result').append(book.getBookToResult())
     });
+}
+
+function showUserBookCollections(data){
+    $('#collections').empty()
+    data.forEach(bookObj=>{
+        book = new Book(bookObj)
+        book.consoleData();
+        $('#collections').append(book.getUserCollections())
+    });
+
 }

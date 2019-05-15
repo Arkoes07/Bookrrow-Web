@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Profile</title>
+  <!DOCTYPE html>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"> </script>
+
+  <style>
+    .bg-light{
+      background: #dadada;
+    }
+
+    .x-left{
+      padding-left: 0px;
+    }
+
+    .x-right{
+      padding-right: 0px;
+    }
+
+
+
+    .card-grid{
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .li-hover:hover{
+      cursor: pointer;
+      background: #dadada;
+      transition: 0.5s;
+    }
+
+    .no-border{
+      border: none;
+    }
+
+    .text-small{
+      font-size: 10px;
+    }
+
+    .card-hover:hover{
+      -webkit-box-shadow: 0px 0px 5px 0px rgb(202, 202, 202); 
+      -moz-box-shadow: 0px 0px 5px 0px rgba(202, 202, 202); 
+      box-shadow: 0px 0px 5px 0px rgb(202, 202, 202);
+    }
+
+    .card-text{
+      text-align: justify;
+    }
+
+    .mr-7{
+      margin-right: 5rem;
+    }
+
+
+
+    @media only screen and (max-width: 500px) { 
+      .card-grid{ 
+          display: block; 
+      } 
+    }
+  </style>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="index.html"><img src="bookrrow-logo.png" width="150"></a>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="request.html">Request</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="ongoing.html">Ongoing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="history.html">History</a>
+        </li>
+      </ul>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link mr-7" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="profile.html">Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="logout.html">Log Out</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="py-5">
+      <h1 class="display-2 mx-5 mt-5 mb-4 ">My Profile</h1>
+
+      <div class="mx-5 my-3 bg-light px-4 py-3 rounded">
+          <div class="row">
+            <div class="col-2">
+              One of three columns
+            </div>
+            <div class="col-5">
+              Name
+              <h2 class="mb-3" id="name">Frenzel Timothy</h2>
+              
+              <div class="row mr-5">
+                <div class="col-sm">
+                  Email
+                  <h6 class="mb-3" id="email">frenzel@gmail.com</h6>
+                </div>
+                <div class="col-sm">
+                  Phone Number
+                  <h6 class="mb-3" id="phonenumber">081290909001</h6>
+                </div>
+              </div>
+              
+            </div>
+            <div class="col-5">
+              One of three columns
+            </div>
+          </div>
+      </div>
+    
+        <div class="row mx-5">
+          <div class="col-2 x-left mt-2">
+              <div class="card">
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item li-hover" id="update">Update Profile</li>
+                    <li class="list-group-item li-hover">Add New Book</li>
+                  </ul>
+                </div>
+          </div>
+          <div class="col-10 x-right">
+            <h1 class="display-4 mt-2 mb-3 ">Collections</h1>
+            <div class="card-grid" id="collections">             
+                      
+            </div>
+                
+          </div>
+        </div>
+  </div>
+
+  
+  <!-- untuk membuat seperti session -->
+  <script>
+      const userInfo = localStorage.getItem("bookrrowConsumerInfo")
+      if(typeof userInfo == 'undefined' || userInfo == null){
+          window.location.href = 'login.html'
+      }
+      console.log("current consumer" + userInfo)
+      const userInfoObj = JSON.parse(userInfo)
+  </script>
+
+  <script src="./scripts/jquery-3.3.1.min.js"></script>
+  <script src="./scripts/domain.js"></script>
+  <script src="./scripts/request/books.js"></script>
+  <script src="./scripts/modelling/Book.js"></script>
+  <script src="./scripts/request/transactions.js"></script>
+
+  <script> 
+    document.getElementById("name").innerHTML = userInfoObj.name;
+    document.getElementById("email").innerHTML = userInfoObj.email;
+    document.getElementById("phonenumber").innerHTML = userInfoObj.phoneNumber;
+    getAllByOwner(userInfoObj.id);
+
+    
+  </script>
+
+</body>
+</html>
