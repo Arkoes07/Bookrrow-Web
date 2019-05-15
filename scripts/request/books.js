@@ -130,7 +130,12 @@ function showUserBookCollections(data){
     data.forEach(bookObj=>{
         book = new Book(bookObj)
         book.consoleData();
-        $('#collections').append(book.getUserCollections())
+        if(book.statusObj.bookStatus=="Available"){
+            $('#collections').append(book.getUserCollectionsAvailable())
+        }else{
+            $('#collections').append(book.getUserCollectionsUnavailable())
+        }
+        
     });
 
 }

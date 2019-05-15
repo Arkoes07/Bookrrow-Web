@@ -54,7 +54,7 @@ class Book {
         `
     }
 
-    getUserCollections(){
+    getUserCollectionsAvailable(){
         return `
             <div class="card card-hover" >
             <div class="card-body">
@@ -66,6 +66,24 @@ class Book {
                 <div class="text-right">
                     <a href="#" onclick="showDescModal(${this.id})" class="card-link">Update Book</a>
                     <a href="#" onclick="removeBook(${this.id})" class="card-link text-danger">Remove</a>
+                </div>
+            </div>          
+            </div>
+
+        `
+    }
+    getUserCollectionsUnavailable(){
+        return `
+            <div class="card card-hover" >
+            <div class="card-body">
+                <h3 class="card-title text-truncate">${this.title}</h3>
+                <h6 class="card-subtitle mb-2 text-muted">By: ${this.author}</h6>
+                <p class="card-subtitle mb-2 text-muted font-weight-light text-small">${this.languageObj.language}  |   ${this.typeObj.bookType}  |   ${this.genreObj.genre}
+                <p class="card-text">${this.description}</p>
+                <br>
+                <div class="text-right">
+                    <a href="#" onclick="showDescModal(${this.id})" class="card-link">Update Book</a>
+                    <a href="#" onclick="removeBook(${this.id})" class="card-link text-danger btn disabled">Remove</a>
                 </div>
             </div>          
             </div>

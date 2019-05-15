@@ -87,6 +87,15 @@
         </div>
     </div>
 
+    <script>
+        const userInfo = localStorage.getItem("bookrrowConsumerInfo")
+        if(typeof userInfo != 'undefined' || userInfo != null){
+            window.location.href = 'index.html'
+        }
+        console.log("current consumer" + userInfo)
+        const userInfoObj = JSON.parse(userInfo)
+    </script>
+
     <script src="./scripts/jquery-3.3.1.min.js"></script>
     <script src="./scripts/domain.js"></script>
     <script src="./scripts/request/consumer.js"></script>
@@ -100,6 +109,8 @@
             registerConsumer(username, password, name, email, phoneNumber)
         }
     </script>
+
+    
 
 </body>
 

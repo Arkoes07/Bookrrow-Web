@@ -38,7 +38,9 @@ function updateConsumerInfo (id, password, name, phonenum){
         type: "POST",
         data: { id, password, name, phonenum },
         success: function(data, status, jqXHR) {
-            // success
+            alert("Profile Updated")
+            localStorage.setItem("bookrrowConsumerInfo",JSON.stringify(data))
+            window.location.href = 'profile.html'
         },
         error: function(jqXHR, status, errorThrown) {
             console.log(jqXHR)    
