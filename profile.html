@@ -61,7 +61,26 @@
       margin-right: 5rem;
     }
 
+    .modal-bg{
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background: #0000006e;
+      
+    }
 
+    .mymodal{
+      width: 500px;
+      
+      padding: 5px;
+      box-sizing: border-box;
+      border-radius: 10px;
+    }
 
     @media only screen and (max-width: 500px) { 
       .card-grid{ 
@@ -72,6 +91,7 @@
 
 </head>
 <body>
+
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="index.html"><img src="bookrrow-logo.png" width="150"></a>
     <div class="collapse navbar-collapse" id="navbarNav">
@@ -91,7 +111,7 @@
       </ul>
       <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link mr-7" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link mr-5" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -138,8 +158,8 @@
           <div class="col-2 x-left mt-2">
               <div class="card">
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item li-hover" id="update">Update Profile</li>
-                    <li class="list-group-item li-hover">Add New Book</li>
+                    <li class="list-group-item li-hover" id="update" >Update Profile</li>
+                    <li class="list-group-item li-hover" id="add-book">Add New Book</li>
                   </ul>
                 </div>
           </div>
@@ -152,6 +172,55 @@
           </div>
         </div>
   </div>
+
+  <div class="modal-bg">
+      <div class="mymodal modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Update Book Description</h5>
+              <button type="button" onclick="hideDescModal()" class="close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group" style="display: none">
+                    <label for="id-book">id</label>
+                    <input class="form-control" type="number" id="id-book" readonly></input>
+                  </div>
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <textarea class="form-control" rows="5" id="description"></textarea>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" onclick="hideDescModal()" class="btn btn-secondary">Close</button>
+              <button type="button" onclick="updateDesc()" class="btn btn-primary">Update Description</button>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <!-- <div class=" " id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  
 
   
   <!-- untuk membuat seperti session -->
@@ -167,14 +236,53 @@
   <script src="./scripts/jquery-3.3.1.min.js"></script>
   <script src="./scripts/domain.js"></script>
   <script src="./scripts/request/books.js"></script>
+  <script src="./scripts/request/book.js"></script>
   <script src="./scripts/modelling/Book.js"></script>
   <script src="./scripts/request/transactions.js"></script>
 
   <script> 
+    $('.modal-bg').css("display", "none");
+
     document.getElementById("name").innerHTML = userInfoObj.name;
     document.getElementById("email").innerHTML = userInfoObj.email;
     document.getElementById("phonenumber").innerHTML = userInfoObj.phoneNumber;
     getAllByOwner(userInfoObj.id);
+
+    function showDescModal(id){
+      // console.log("id : "+id)
+      $('#id-book').val(id)
+      $('.modal-bg').css("display", "flex");
+    }
+
+    function hideDescModal(){
+      $('.modal-bg').css("display", "none");
+    }
+
+    $('#add-book').click(e => {
+      window.location.href="addbook.html"
+    })
+
+    $('.modal-bg').click(e=>{
+      hideDescModal()
+    })
+
+    $('.mymodal').click(e=>{
+      e.stopPropagation()
+    })
+
+    function updateDesc(){
+      updateBookDescription($('#id-book').val(), $('#description').val())
+      hideDescModal()
+    }
+
+    function removeBook(id){
+      if(confirm("Are you sure want to remove?")){
+        deleteBook(id);
+      }else{
+        //
+      }
+      
+    }
 
     
   </script>

@@ -64,8 +64,8 @@ class Book {
                 <p class="card-text">${this.description}</p>
                 <br>
                 <div class="text-right">
-                    <a href="#" class="card-link">Update Book</a>
-                    <a href="#" class="card-link text-danger">Remove</a>
+                    <a href="#" onclick="showDescModal(${this.id})" class="card-link">Update Book</a>
+                    <a href="#" onclick="removeBook(${this.id})" class="card-link text-danger">Remove</a>
                 </div>
             </div>          
             </div>
